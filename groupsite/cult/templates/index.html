@@ -2,10 +2,7 @@
 <br>
 {% for item in object_list %}
     <h2>{{ item.title }}</h2>
-    <h4><i>was liked: {{ item.liked_me }} time(s)</i></h4>
-    <form method='post' action=''>
-        <input type="submit" value="Like" name="{{ item.title }}"/>
-    </form>
+    <h4><i>was liked: {{ item.received_likes }} time(s)</i></h4>
     <br>
     <br>
     <br>
