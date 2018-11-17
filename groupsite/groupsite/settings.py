@@ -77,11 +77,15 @@ WSGI_APPLICATION = 'groupsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': '/etc/mysql/my.cnf',
+        'NAME': 'cult_data',
+        'USER': 'vasya',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        # 'OPTIONS': {
+        #     'read_default_file': '/etc/mysql/my.cnf',
         },
     }
-}
 
 
 # Password validation

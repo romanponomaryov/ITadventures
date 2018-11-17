@@ -1,10 +1,12 @@
-<h1>Hello Ostap!</h1>
-<br>
+<h1>Rate the films!</h1>
 <br>
 {% for item in object_list %}
     <h2>{{ item.title }}</h2>
     <h4><i>was liked: {{ item.liked_me }} time(s)</i></h4>
-<br>
-<br>
-<br>
+    <form method='post' action=''>
+        <input type="submit" value="Like" name="{{ item.title }}"/>
+    </form>
+    <br>
+    <br>
+    <br>
 {% endfor %}
