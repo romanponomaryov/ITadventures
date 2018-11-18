@@ -12,7 +12,7 @@ $ docker pull pomacb/django-mysql:1.0
 $ docker pull pomacb/django-web:0.1
 
 3) Create directory "cursor-kyiv" wherever you want and copy there or create with the same content file -> "docker-compose.yml"
-from this repository
+from this repository https://github.com/romanponomaryov/ITadventures/blob/master/docker-compose.yml
 
 $ mkdir cursor-kyiv
 $ cd cursor-kyiv/
@@ -65,6 +65,12 @@ $ docker exec -it cursorkyiv_django_1 python manage.py createsuperuser
 
 8) To add content, run:
 
+Connect to container into mysql (password for root is "password"):
+$ docker exec -it cursorkyiv_db_1 mysql -uroot -p
 
+mysql> source /media/init.sql
+mysql> exit;
+
+The end, be happy! ;)
 
 """
