@@ -6,7 +6,7 @@ class Item(models.Model):
     received_likes = models.PositiveSmallIntegerField(default=0, null=False, blank=False)
 
     def __str__(self):
-        return f"{self.title} like {self.received_likes}"
+        return f"{self.title} has {self.received_likes} like(s)"
 
 
 class User(models.Model):
@@ -14,4 +14,4 @@ class User(models.Model):
     posted_likes = models.PositiveSmallIntegerField(default=0, null=False, blank=False)
 
     def __str__(self):
-        return f"{self.name} gave {self.posted_likes}"
+        return f"{self.name} gave {self.posted_likes} like(s)"
