@@ -1,0 +1,29 @@
+version: "2"
+services:
+  db:
+    image: pomacb/django-mysql:1.0
+    restart: always
+    environment:
+      - MYSQL_HOST=172.18.0.1
+      - MYSQL_PORT=3306
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=cult_data
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - /var/lib/mysql
+    ports:
+      - "3306:3306"
+  django:
+    image: pomacb/django-web:0.1
+    stdin_open: true
+    tty: true
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - /app/src/groupsite
+    ports:
+      - "8000:8000"
+    links:
+      - db
+    depends_on:
+      - db
