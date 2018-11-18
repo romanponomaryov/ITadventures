@@ -17,3 +17,8 @@ def like(request, item_id):
     return HttpResponseRedirect(reverse('index'))
 
 
+def top_items(request):
+    top_10_items = Item.objects.order_by('received_likes').reverse()[:10]
+    return render(request, 'top_items.html', {'items': top_10_items})
+
+

@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<center><h1>Top 10 cult films:</h1></center>
+<p><a href="{% url 'index' %}">Back to voting</a></p>
+<br>
+<br>
+<br>
+{% for item in items %}
+    <h3>{{ item.title }}</h3>
+    <h4><i>Rating: {{ item.received_likes }} like(s)</i></h4>
+    <br>
+    <br>
+{% endfor %}
+<p><a href="{% url 'index' %}">Back to voting</a></p>

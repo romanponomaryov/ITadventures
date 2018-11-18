@@ -1,5 +1,6 @@
-<center><h1>Welcome to <a href="https://en.wikipedia.org/wiki/Cult_film">cult films </a>database!</h1></center>
-<h2>Vote for the films you like:</h2>
+<center><h1>Welcome to <a href="https://en.wikipedia.org/wiki/Cult_film">cult films</a> database!</h1></center>
+<h2>Vote for the films you like and check out the list of <a href="{% url 'top_items' %}">
+    10 best films</a></h2>
 <br>
 {% for item in items %}
     <h3>{{ item.title }}</h3>

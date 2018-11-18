@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from cult.views import index, like
+from cult.views import index, like, top_items
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', index, name='index'),
     path('<int:item_id>', like, name='like'),
+    path('top_items', top_items, name='top_items'),
     # path('', IndexView.as_view(), name='index'),
     # path('<int:id>', IndexView.as_view(), name='index'),
 
