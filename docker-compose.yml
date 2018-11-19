@@ -4,7 +4,7 @@ services:
     image: pomacb/django-mysql:1.0
     restart: always
     environment:
-      - MYSQL_HOST=172.18.0.1
+      - MYSQL_HOST=172.18.0.2
       - MYSQL_PORT=3306
       - MYSQL_ROOT_HOST=%
       - MYSQL_DATABASE=cult_data
