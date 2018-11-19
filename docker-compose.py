@@ -38,11 +38,15 @@ $ docker exec -it cursorkyiv_db_1 mysql -uroot -p
 And run:
 mysql> CREATE DATABASE cult_data;
 
-And allow root to connect from all ips, run:
+if it says that base exists - ok, proceed to the next step.
+
+Allow root to connect from all ips, run:
 
 mysql> UPDATE mysql.user SET host='%' WHERE user = 'root';
 mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
 mysql> exit;
+
+
 
 6) Initializing Django container, run:
 
@@ -59,9 +63,15 @@ $ docker-compose start django
 
 Now you can use our site but there is no content
 
-7) Add django superuser, run:
+7) Make initial migrations, run: 
+
+$ docker exec -it cursorkyiv_django_1 python manage.py migrate
+
+
+Add django superuser, run:
 
 $ docker exec -it cursorkyiv_django_1 python manage.py createsuperuser
+(we usually use credentials as in admin_credentials file)
 
 8) To add content, run:
 
