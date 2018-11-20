@@ -1,14 +1,44 @@
-<center><h1>Welcome to <a href="https://en.wikipedia.org/wiki/Cult_film">cult films</a> database!</h1></center>
-<h2>Vote for the films you like and check out the list of <a href="{% url 'top_items' %}">
-    10 best films</a></h2>
-<br>
-{% for item in items %}
-    <h3>{{ item.title }}</h3>
-    <h4><i>Rating: {{ item.received_likes }} like(s)</i></h4>
-    <form action="{% url 'like' item.id %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Like"/>
-    </form>
-    <br>
-    <br>
-{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>IT adventures</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style type="text/css">
+            body{
+
+            background-image: url("http://wallpapers-images.ru/1680x1050/movies/wallpapers/wallpapers-movies-2.jpg");
+            background-repeat: no-repeat;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+        <center><h1>Welcome to <a href="https://en.wikipedia.org/wiki/Cult_film">cult films</a> database!</h1></center>
+        <h2>Vote for the films you like and check out the list of <a href="{% url 'top_items' %}">
+            10 best films</a></h2>
+        <br>
+        {% for item in items %}
+            <h3 class="text-danger">{{ item.title }}</h3>
+            <h4><i>Rating: {{ item.received_likes }} like(s)</i></h4>
+            <form action="{% url 'like' item.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="Like"/>
+            </form>
+            <br>
+            <br>
+        {% endfor %}
+        </div>
+
+    </body>
+
+</html>
