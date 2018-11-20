@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'cult.apps.CultConfig',
+    'django.contrib.admindocs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
