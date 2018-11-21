@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Item(models.Model):
+    """ Stores single film """
     title = models.CharField(max_length=150, null=False, blank=False)
     received_likes = models.PositiveSmallIntegerField(default=0, null=False, blank=False)
 
@@ -10,6 +11,7 @@ class Item(models.Model):
 
 
 class User(models.Model):
+    """ Stores user """
     name = models.CharField(max_length=150, null=False, blank=False)  #TODO: use authentication
     posted_likes = models.PositiveSmallIntegerField(default=0, null=False, blank=False)
 

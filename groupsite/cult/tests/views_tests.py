@@ -1,11 +1,13 @@
 from django.test import TestCase, Client
-from cult.models import Item
+from cult.models import Item, User
 from django.urls import reverse
 
 """
-To run these tests execute in terminal (while in project directory): python manage.py test cult.tests.views_tests
-if you want more info - use "verbosity", e.g. : python manage.py test --verbosity=2 cult.tests.views_tests
+Tests for views
 """
+
+# To run these tests execute in terminal (while in project directory): python manage.py test cult.tests.views_tests
+# if you want more info - use "verbosity", e.g. : python manage.py test --verbosity=2 cult.tests.views_tests
 
 
 class IndexViewTests(TestCase):
@@ -46,6 +48,25 @@ class TopItemsViewTests(TestCase):
         item.save()
         response = self.client.get(reverse('top_items'))
         self.assertContains(response, 'Test film 0')
+
+
+class ActivityTests(TestCase):
+    def setUp(self):
+        """ create client and 20 users """
+        client = Client()
+        for i in range(0, 11):
+            user = User.objects.create(
+                name=f'Test User {i}',
+                posted_likes=i
+            )
+            user.save()
+
+    def test_all_users_always_shown(self):
+        """ Check that all users with correct likes value are present on page """
+        for i in range(0, 11):
+            response = self.client.get(reverse('activity'))
+            self.assertContains(response, f'Test User {i} - posted: {i} like(s)')
+
 
 # class LoginTests(TestCase):
 
