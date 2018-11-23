@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Models</title>
+<link rel="stylesheet" type="text/css" href="./base.css">
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+
+<body>
+
+<!-- Container -->
+<div id="container">
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+            <h1 id="site-name">Django documentation</h1>
+        </div>
+    </div>
+    <!-- END Header -->
+
+    <!-- Content -->
+<div id="content" class="colSM">
+    <div id="content-main">
+    <h1 id="models">Models</h1>
+
+            <div class="module">
+                <h2>Cult</h2>
+
+                <table class="xfull">
+                    <tbody>
+                        <tr>
+                        <th>
+
+                            <h1>cult.Item</h1>
+                            <h2 class="subhead"><p>Stores single film</p></h2>
+
+                            <h3>Fields</h3>
+                            <div class="module">
+                            <table class="model">
+                            <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td>id</td>
+                                <td>Integer</td>
+                                <td>ID</td>
+                            </tr>
+
+                            <tr>
+                                <td>received_likes</td>
+                                <td>Positive small integer</td>
+                                <td>received likes</td>
+                            </tr>
+
+                            <tr>
+                                <td>title</td>
+                                <td>String (up to 150)</td>
+                                <td>title</td>
+                            </tr>
+
+                            </tbody>
+                            </table>
+                            </div>
+                        </th>
+                        </tr>
+                        <tr>
+                        <th>
+
+                            <h1>cult.User</h1>
+                            <h2 class="subhead"><p>Stores user</p>
+                            </h2>
+
+                            <h3>Fields</h3>
+                            <div class="module">
+                            <table class="model">
+                            <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td>id</td>
+                                <td>Integer</td>
+                                <td>ID</td>
+                            </tr>
+
+                            <tr>
+                                <td>name</td>
+                                <td>String (up to 150)</td>
+                                <td>name</td>
+                            </tr>
+
+                            <tr>
+                                <td>posted_likes</td>
+                                <td>Positive small integer</td>
+                                <td>posted likes</td>
+                            </tr>
+                            </tbody>
+                            </table>
+                            </div>
+                        </th>
+                        </tr>
+
+        </tbody></table>
+            </div>
+
+
+    <h1 id="views">Views</h1>
+            <div class="module">
+                <h2>Views by empty namespace</h2>
+
+                <h3>/</h3>
+                <p class="average quiet">
+                    View function: <code>cult.views.IndexView</code>. Name: <code>index</code>.
+                </p>
+                <p> Shows homepage with the list of all Item objects currently in db</p>
+                <p></p>
+                <hr>
+                <hr>
+
+                <h3>/&lt;int:item_id&gt;</h3>
+                <p class="average quiet">
+                    View function: <code>cult.views.LikeView</code>. Name: <code>like</code>.
+                </p>
+                <p>Is used for 'like' functionality on homepage (uses POST request)</p>
+                <p></p>
+                <hr>
+                <hr>
+
+                <h3>/top_items</h3>
+                <p class="average quiet">
+                    View function: <code>cult.views.TopItemsView</code>. Name: <code>top_items</code>.
+                </p>
+                <p>Shows 'Top films' page with the list of 10 Item objects with the biggest number of received likes</p>
+                <p></p>
+                <hr>
+                <hr>
+
+                <h3>/activity</h3>
+                <p class="average quiet">
+                    View function: <code>cult.views.ActiveUsersView</code>. Name: <code>activity</code>.
+                </p>
+                <p>Shows 'User activity' page with the list of all users ordered by the number of posted likes</p>
+                <p></p>
+                <hr>
+                <hr>
+
+                <h3>/login</h3>
+                <p class="average quiet">
+                    View function: <code>cult.views.LoginFormView</code>. Name: <code>login</code>.
+                </p>
+                <p>Shows Login page with the form</p>
+                <p></p>
+                <hr>
+                <hr>
+
+                <h3>/logout</h3>
+                <p class="average quiet">
+                    View function: <code>cult.views.LogoutView</code>. Name: <code>logout</code>.
+                </p>
+                <p>Is used for 'logout' functionality in header (uses GET request)</p>
+                <p></p>
+                <hr>
+                <hr>
+
+            </div>
+
+         <h1 id="tests">Tests</h1>
+            <div class="module">
+                <h2>DB tests</h2>
+                <h3>Tests for Item database object</h3>
+                <p class="average quiet">
+                   class: <code>cult.tests.db_tests.ItemDBTests</code>
+                </p>
+                <hr>
+                <p>Check if created item exists in database with correct attributes</p>
+                <p class="average quiet">
+                   function: <code>cult.tests.db_tests.ItemDBTests.test_item_exists</code>
+                </p>
+                <hr><hr><hr><hr>
+
+                <h3>Tests for User database object</h3>
+                <p class="average quiet">
+                   class: <code>cult.tests.db_tests.UserDBTests</code>
+                </p>
+                <hr>
+                <p>Check if created user exists in database with correct attributes</p>
+                <p class="average quiet">
+                   function: <code>cult.tests.db_tests.UserDBTests.test_user_exists</code>
+                </p>
+
+                <h2>Views tests</h2>
+                <h3>Tests for homepage</h3>
+                <p class="average quiet">
+                   class: <code>cult.tests.views_tests.IndexViewTests</code>
+                </p>
+                <hr>
+                <p>Check if the test item is present on index page and can receive a like</p>
+                <p class="average quiet">
+                   function: <code>cult.tests.views_tests.IndexViewTests.test_item_liked</code>
+                </p>
+                <hr><hr><hr><hr>
+
+                <h3>Tests for top 10 films page</h3>
+                <p class="average quiet">
+                   class: <code>cult.tests.views_tests.TopItemsViewTests</code>
+                </p>
+                <hr>
+                <p>Check that the film with 11th rank in likes is not present on page</p>
+                <p class="average quiet">
+                   function: <code>cult.tests.views_tests.TopItemsViewTests.test_only_top_items_shown</code>
+                </p>
+                <hr>
+                <p>Check that the film with 10th rank in likes is present on page</p>
+                <p class="average quiet">
+                   function: <code>cult.tests.views_tests.TopItemsViewTests.test_top_items_always_shown</code>
+                </p>
+                <h3>Tests for user activity page</h3>
+                <p class="average quiet">
+                   class: <code>cult.tests.views_tests.ActivityTests</code>
+                </p>
+                <hr>
+                <p>Check that all users with correct likes value are present on page</p>
+                <p class="average quiet">
+                   function: <code>cult.tests.views_tests.ActivityTests.test_all_users_always_shown</code>
+                </p>
+                <hr><hr><hr><hr>
+
+            </div>
+         <!--<h1 id="else">Else</h1>-->
+            <!--<div class="module">-->
+                <!--<h2> </h2>-->
+
+                <!--<table class="xfull">-->
+                    <!--<tbody>-->
+                        <!--<tr>-->
+                        <!--<th>-->
+                        <!--</th>-->
+                        <!--</tr>-->
+
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
+    </div>
+
+
+<div id="content-related" class="sidebar">
+<div class="module">
+<h2>Sections</h2>
+<ul>
+
+
+    <li><a href="#models">Models</a></li>
+
+    <li><a href="#views">Views</a></li>
+
+    <li><a href="#tests">Tests</a></li>
+
+
+</ul>
+</div>
+</div>
+
+        <br class="clear">
+</div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+
+
+</body></html>
