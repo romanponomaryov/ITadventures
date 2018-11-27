@@ -11,6 +11,7 @@ Tests for views
 
 
 class IndexViewTests(TestCase):
+    """ Tests for homepage """
     def setUp(self):
         client = Client()
 
@@ -26,6 +27,7 @@ class IndexViewTests(TestCase):
 
 
 class TopItemsViewTests(TestCase):
+    """ Tests for top 10 films page """
     def setUp(self):
         """ create client and 11 films """
         client = Client()
@@ -37,7 +39,7 @@ class TopItemsViewTests(TestCase):
             item.save()
 
     def test_only_top_items_shown(self):
-        """ Check that the film with lowest likes is not present on page """
+        """ Check that the film with 11th rank in likes is not present on page """
         response = self.client.get(reverse('top_items'))
         self.assertNotContains(response, 'Test film 0')
 
@@ -51,8 +53,9 @@ class TopItemsViewTests(TestCase):
 
 
 class ActivityTests(TestCase):
+    """ Tests for user activity page """
     def setUp(self):
-        """ create client and 20 users """
+        """ create client and 11 users """
         client = Client()
         for i in range(0, 11):
             user = User.objects.create(
@@ -76,8 +79,8 @@ class ActivityTests(TestCase):
 # TODO:
 """
     - index page - when auth is implemented - check for authed ("like" option enabled) and non-authed
-    - users activity page 
-    - creation of user
+    - users activity page +++
+    - creation of user - ?
     - user login
     - user logout
 """

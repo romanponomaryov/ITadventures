@@ -27,6 +27,6 @@ urlpatterns = [
     path('top_items', TopItemsView.as_view(), name='top_items'),
     path('activity', ActiveUsersView.as_view(), name='activity'),
 
-    path('login/', LoginFormView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('login', LoginFormView.as_view(), name='login'),
+    path('logout', LogoutView.as_view(), name='logout'),
 ]

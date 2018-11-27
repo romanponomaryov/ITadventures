@@ -1,15 +1,18 @@
-<center><h1>Active users' hall of fame:</h1></center>
-<p>Back to the <a href="{% url 'index' %}">voting page</a> or check out the list of <a href="{% url 'top_items' %}">
-    10 best films</a></p>
-<br>
-<br>
-<br>
-{% for user in users %}
-    <h3>{{ user.name }} - posted: {{ user.posted_likes }} like(s)</h3>
-    <br>
-    <br>
-{% endfor %}
-<p>Back to the <a href="{% url 'index' %}">voting page</a> or check out the list of <a href="{% url 'top_items' %}">
-    10 best films</a></p>
+{% extends 'base.html' %}
 
+{% block title %}Cult - user activity{% endblock %}
+
+{% block content %}
+    <center><h1>User activity:</h1></center>
+    <center><h3><a href="{% url 'index' %}">Vote</a> for the films you like or check out the list of <a href="{% url 'top_items' %}"> 10 best films</a></h3></center>
+    <br>
+    <br>
+    <br>
+    {% for user in users %}
+        <h3>{{ user.name }} - posted: {{ user.posted_likes }} like(s)</h3>
+        <br>
+        <br>
+    {% endfor %}
+    <center><h3><a href="{% url 'index' %}">Vote</a> for the films you like or check out the list of <a href="{% url 'top_items' %}"> 10 best films</a></h3></center>
+{% endblock %}
 

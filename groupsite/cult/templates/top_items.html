@@ -1,12 +1,17 @@
-<center><h1>Top 10 cult films:</h1></center>
-<p>Back to the <a href="{% url 'index' %}">voting page</a> or <a href="{% url 'activity' %}">find out</a> who posted the most likes!</p>
-<br>
-<br>
-<br>
-{% for item in items %}
-    <h3>{{ item.title }}</h3>
-    <h4><i>Rating: {{ item.received_likes }} like(s)</i></h4>
+{% extends 'base.html' %}
+
+{% block title %}Cult - Top 10 films{% endblock %}
+
+{% block content %}
+    <center><h1>Top 10 cult films:</h1></center>
     <br>
     <br>
-{% endfor %}
-<p>Back to the <a href="{% url 'index' %}">voting page</a> or <a href="{% url 'activity' %}">find out</a> who posted the most likes!</p>
+    {% for item in items %}
+        <h3 class="text-gold">{{ item.title }}</>
+        <h5><i>Rating: {{ item.received_likes }} like(s)</i></h5>
+        <br>
+    {% endfor %}
+    <center><h3><a href="{% url 'index' %}">Vote</a> for the films you like or <a href="{% url 'activity' %}">find out</a> who
+    posted the most likes!</h3></center>
+    <br>
+{% endblock %}

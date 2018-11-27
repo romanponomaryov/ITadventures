@@ -1,16 +1,26 @@
-<center><h1>Welcome to <a href="https://en.wikipedia.org/wiki/Cult_film">cult films</a> database!</h1></center>
-<h2>Vote for the films you like and check out the list of <a href="{% url 'top_items' %}">
-    10 best films</a> or <a href="{% url 'activity' %}">find out</a> who posted the most likes!</h2>
-<br>
-{% for item in items %}
-    <h3>{{ item.title }}</h3>
-    <h4><i>Rating: {{ item.received_likes }} like(s)</i></h4>
-    id = {{ item.id }}
-    <form action="{% url 'like' item.id %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Like" name="{{ item.id }}"/>
-    </form>
-    <br>
-    <br>
-{% endfor %}
+{% extends 'base.html' %}
 
+{% block title %}Cult films{% endblock %}
+
+{% block content %}
+    <br>
+    <center><h1>Welcome to <a href="https://en.wikipedia.org/wiki/Cult_film">cult films</a> database!</h1></center>
+    <h2>Vote for the films you like and check out the list of <a href="{% url 'top_items' %}">
+        10 best films</a>!<br>Guess who posted the most likes - <a href="{% url 'activity' %}">find out</a>!</h2>
+    <br>
+    <br>
+    {% for item in items %}
+        <h3 class="text-gold">{{ item.title }}</h3>
+        <h5><i>Rating: {{ item.received_likes }} like(s)</i></h5>
+        <!--id = {{ item.id }}-->
+        <form action="{% url 'like' item.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Like" name="{{ item.id }}"/>
+        </form>
+        <br>
+        <br>
+    {% endfor %}
+    <center><h3>Check out the list of <a href="{% url 'top_items' %}">10 best films</a> or <a href="{% url 'activity' %}">find out</a> who
+    posted the most likes!</h3></center>
+    <br>
+{% endblock %}

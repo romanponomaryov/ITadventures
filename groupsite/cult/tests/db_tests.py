@@ -18,7 +18,7 @@ class ItemDBTests(TestCase):
         )
 
     def test_item_exists(self):
-        """ Check if created item exists in database with correct attributes"""
+        """ Check if created item exists in database with correct attributes """
         item = Item.objects.get(title='Test film')
         self.assertEqual(item.received_likes, 0)
 
@@ -30,7 +30,7 @@ class UserDBTests(TestCase):
             posted_likes=0
         )
 
-    def test_item_exists(self):
+    def test_user_exists(self):
         """ Check if created item exists in database with correct attributes"""
         user = User.objects.get(name='Test User')
         self.assertEqual(user.posted_likes, 0)
